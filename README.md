@@ -9,6 +9,9 @@ from any computer on the same network as your Raspberry Pi.
 
 ## Installation
 
+*Note: you'll need epdtext installed first, see
+[the epdtext README](https://github.com/tsbarnes/epdtext/blob/main/README.md)*
+
 * First, make sure you have `git` and `pip3` using this command:
 
 ```shell
@@ -32,6 +35,12 @@ sudo pip3 install -r requirements.txt
 
 ```python
 SECRET_KEY = "<your secret key here>"
+```
+
+* You can generate a new secret key with this command:
+
+```shell
+python -c 'import os; print(os.urandom(16))'
 ```
 
 * Last, copy the service file and start the server:
