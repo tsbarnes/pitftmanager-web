@@ -1,6 +1,6 @@
 import logging
 import posix_ipc
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, request
 
 app = Flask(__name__)
 app.config.from_pyfile("app.cfg")
@@ -17,15 +17,15 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/next')
-def next():
+@app.route('/next_screen')
+def next_screen():
     mq.send("next", timeout=10)
     flash("Sent 'next' message to epdtext")
     return redirect('/')
 
 
-@app.route('/previous')
-def previous():
+@app.route('/previous_screen')
+def previous_screen():
     mq.send("previous", timeout=10)
     flash("Sent 'previous' message to epdtext")
     return redirect('/')
@@ -63,6 +63,30 @@ def button3():
 def reload():
     mq.send("reload", timeout=10)
     flash("Sent 'reload' message to epdtext")
+    return redirect('/')
+
+
+@app.route('/screen')
+def screen():
+    screen_name = request.args.get('screen')
+    mq.send("screen " + screen_name, timeout=10)
+    flash("Sent 'screen' message to epdtext")
+    return redirect('/')
+
+
+@app.route('/add_screen')
+def add_screen():
+    screen_name = request.args.get('screen')
+    mq.send("add_screen " + screen_name, timeout=10)
+    flash("Sent 'add_screen' message to epdtext")
+    return redirect('/')
+
+
+@app.route('/remove_screen')
+def remove_screen():
+    screen_name = request.args.get('screen')
+    mq.send("remove_screen " + screen_name, timeout=10)
+    flash("Sent 'remove_screen' message to epdtext")
     return redirect('/')
 
 

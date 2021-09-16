@@ -13,19 +13,26 @@
 {% block content %}
     <div class="container">
         <div class="btn-group">
-            <a class="btn btn-light" href="{{ url_for('next') }}">Next</a>
-            <a class="btn btn-light" href="{{ url_for('previous') }}">Previous</a>
+            <a class="btn btn-outline-primary btn-lg" href="{{ url_for('next_screen') }}">Next</a>
+            <a class="btn btn-outline-primary btn-lg" href="{{ url_for('previous_screen') }}">Previous</a>
         </div>
 
         <div class="btn-group">
-            <a class="btn btn-light" href="{{ url_for('button0') }}">KEY1</a>
-            <a class="btn btn-light" href="{{ url_for('button1') }}">KEY2</a>
-            <a class="btn btn-light" href="{{ url_for('button2') }}">KEY3</a>
-            <a class="btn btn-light" href="{{ url_for('button3') }}">KEY4</a>
+            <a class="btn btn-outline-secondary" href="{{ url_for('button0') }}">KEY1</a>
+            <a class="btn btn-outline-secondary" href="{{ url_for('button1') }}">KEY2</a>
+            <a class="btn btn-outline-secondary" href="{{ url_for('button2') }}">KEY3</a>
+            <a class="btn btn-outline-secondary" href="{{ url_for('button3') }}">KEY4</a>
         </div>
 
         <div class="btn-group">
-            <a class="btn btn-light" href="{{ url_for('reload') }}">Reload</a>
+            <a class="btn btn-outline-light" href="{{ url_for('reload') }}">Reload</a>
         </div>
+
+        <form class="form" action="{{ url_for('screen') }}">
+            <div class="input-group">
+                <input type="text" name="screen">
+                <button type="submit" class="btn btn-outline-info">Switch Screen</button>
+            </div>
+        </form>
     </div>
 {% endblock %}
