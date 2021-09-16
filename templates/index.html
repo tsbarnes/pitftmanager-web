@@ -3,9 +3,29 @@
 {% block title %}epdtext-web{% endblock %}
 
 {% block header %}
+    <nav class="navbar navbar-light bg-light">
+        <div class="container">
+            <p class="navbar-brand">epdtext-web</p>
+        </div>
+    </nav>
 {% endblock %}
 
 {% block content %}
-    <a href="{{ url_for('next') }}">Next</a>
-    <a href="{{ url_for('previous') }}">Previous</a>
+    <div class="container">
+        <div class="btn-group">
+            <a class="btn btn-light" href="{{ url_for('next') }}">Next</a>
+            <a class="btn btn-light" href="{{ url_for('previous') }}">Previous</a>
+        </div>
+
+        <div class="btn-group">
+            <a class="btn btn-light" href="{{ url_for('button0') }}">KEY1</a>
+            <a class="btn btn-light" href="{{ url_for('button1') }}">KEY2</a>
+            <a class="btn btn-light" href="{{ url_for('button2') }}">KEY3</a>
+            <a class="btn btn-light" href="{{ url_for('button3') }}">KEY4</a>
+        </div>
+
+        <div class="btn-group">
+            <a class="btn btn-light" href="{{ url_for('reload') }}">Reload</a>
+        </div>
+    </div>
 {% endblock %}
