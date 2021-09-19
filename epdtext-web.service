@@ -1,14 +1,13 @@
 [Unit]
 Description=epdtext Flask app
 After=local-fs.target network.target epdtext.service
-PartOf=epdtext.service
 
 [Service]
 Type=simple
 Environment=FLASK_APP=app.py:app
 WorkingDirectory=/home/pi/epdtext-web
 ExecStart=/usr/bin/python3 -m flask run --host=0.0.0.0 --port=80
-Restart=always
+Restart=on-failure
 
 [Install]
 WantedBy=default.target
