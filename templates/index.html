@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}epdtext-web{% endblock %}
+{% block title %}pitftmanager-web{% endblock %}
 
 {% block header %}
     <nav class="navbar navbar-dark bg-dark">
@@ -12,10 +12,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/tsbarnes/epdtext-web">epdtext-web GitHub</a>
+                        <a class="nav-link" href="https://github.com/tsbarnes/pitftmanager-web">pitftmanager-web GitHub</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/tsbarnes/epdtext">epdtext GitHub</a>
+                        <a class="nav-link" href="https://github.com/tsbarnes/pitftmanager">pitftmanager GitHub</a>
                     </li>
                 </ul>
             </div>
@@ -28,44 +28,36 @@
         <div class="col-lg-4 col-md-3 col-sm-1"></div>
         <div class="col-lg-4 col-md-6 col-sm-10">
             <div class="btn-group btn-group-lg">
-                <a class="btn btn-outline-primary btn-lg" href="{{ url_for('previous_screen') }}">Previous</a>
-                <a class="btn btn-outline-primary btn-lg" href="{{ url_for('reload') }}">Reload</a>
-                <a class="btn btn-outline-primary btn-lg" href="{{ url_for('next_screen') }}">Next</a>
+                <a class="btn btn-outline-primary btn-lg" href="{{ url_for('previous_app') }}">Previous</a>
+                <a class="btn btn-outline-primary btn-lg" href="{{ url_for('next_app') }}">Next</a>
             </div>
 
-            <div class="btn-group">
-                <a class="btn btn-outline-secondary" href="{{ url_for('button0') }}">KEY1</a>
-                <a class="btn btn-outline-secondary" href="{{ url_for('button1') }}">KEY2</a>
-                <a class="btn btn-outline-secondary" href="{{ url_for('button2') }}">KEY3</a>
-                <a class="btn btn-outline-secondary" href="{{ url_for('button3') }}">KEY4</a>
-            </div>
-
-            <form class="form" action="{{ url_for('screen') }}">
+            <form class="form" action="{{ url_for('switch_app') }}">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="screen">
-                    <button type="submit" class="btn btn-outline-info">Switch Screen</button>
+                    <input type="text" class="form-control" name="app">
+                    <button type="submit" class="btn btn-outline-info">Switch App</button>
                     <div class="form-text">
-                        Enter the name of the screen module you want to use
+                        Enter the name of the app module you want to use
                     </div>
                 </div>
             </form>
 
-            <form class="form" action="{{ url_for('add_screen') }}">
+            <form class="form" action="{{ url_for('load_app') }}">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="screen">
-                    <button type="submit" class="btn btn-outline-info">Add Screen</button>
+                    <input type="text" class="form-control" name="app">
+                    <button type="submit" class="btn btn-outline-info">Load App</button>
                     <div class="form-text">
-                        Enter the name of the screen module you want to load
+                        Enter the name of the app module you want to load
                     </div>
                 </div>
             </form>
 
-            <form class="form" action="{{ url_for('remove_screen') }}">
+            <form class="form" action="{{ url_for('remove_app') }}">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="screen">
-                    <button type="submit" class="btn btn-outline-info">Remove Screen</button>
+                    <input type="text" class="form-control" name="app">
+                    <button type="submit" class="btn btn-outline-info">Remove App</button>
                     <div class="form-text">
-                        Enter the name of the screen module you want to unload
+                        Enter the name of the app module you want to unload
                     </div>
                 </div>
             </form>

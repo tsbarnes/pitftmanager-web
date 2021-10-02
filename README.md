@@ -1,16 +1,16 @@
-# epdtext-web
+# pitftmanager-web
 
-epdtext-web is a Flask web app to control [epdtext](https://github.com/tsbarnes/epdtext)
+pitftmanager-web is a Flask web app to control [pitftmanager](https://github.com/tsbarnes/pitftmanager)
 
 ## Basics
 
-Simply put, epdtext-web is an addon for epdtext that allows you to control the screen via a web app, accessible
+Simply put, pitftmanager-web is an addon for pitftmanager that allows you to control the screen via a web app, accessible
 from any computer on the same network as your Raspberry Pi.
 
 ## Installation
 
-*Note: you'll need epdtext installed first, see
-[the epdtext README](https://github.com/tsbarnes/epdtext/blob/main/README.md)*
+*Note: you'll need pitftmanager installed first, see
+[the pitftmanager README](https://github.com/tsbarnes/pitftmanager/blob/main/README.md)*
 
 * First, make sure you have `git` and `pip3` using this command:
 
@@ -21,8 +21,8 @@ sudo apt install git python3-pip
 * Second, clone the repository and change directory into it:
 
 ```shell
-git clone https://github.com/tsbarnes/epdtext-web.git /home/pi/epdtext-web
-cd /home/pi/epdtext-web
+git clone https://github.com/tsbarnes/pitftmanager-web.git /home/pi/pitftmanager-web
+cd /home/pi/pitftmanager-web
 ```
 
 * Third, install the Python dependencies:
@@ -46,10 +46,10 @@ python -c 'import os; print(os.urandom(16))'
 * Last, copy the service file and start the server:
 
 ```shell
-sudo cp /home/pi/epdtext-web/epdtext-web.service /etc/systemd/system/
+sudo cp /home/pi/pitftmanager-web/pitftmanager-web.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl enable epdtext-web
-sudo systemctl start epdtext-web
+sudo systemctl enable pitftmanager-web
+sudo systemctl start pitftmanager-web
 ```
 
 * Congratulations, you're set up! Now access the web app by visiting your Pi's address in a web browser!
