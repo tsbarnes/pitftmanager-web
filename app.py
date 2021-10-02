@@ -25,7 +25,7 @@ def next_app():
 
 
 @app.route('/previous_app')
-def previous_screen():
+def previous_app():
     mq.send("previous", timeout=10)
     flash("Sent 'previous' message to pitftmanager")
     return redirect('/')
