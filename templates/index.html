@@ -64,4 +64,45 @@
         </div>
         <div class="col-lg-4 col-md-3 col-sm-1"></div>
     </div>
+    <div class="row">
+        <div class="col-lg-4 col-md-3 col-sm-1"></div>
+        <div class="col-lg-4 col-md-6 col-sm-10">
+            <h1>System Info</h1>
+            <table>
+                <tr>
+                    <td>OS:</td>
+                    <td>{{ system.dist() }}</td>
+                </tr>
+                <tr>
+                    <td>Model:</td>
+                    <td>{{ system.model() }}</td>
+                </tr>
+                <tr>
+                    <td>Temperature:</td>
+                    <td>{{ system.temperature() }}°</td>
+                </tr>
+                <tr>
+                    <td>Network Sent:</td>
+                    <td>{{ system.network_total_sent() }}</td>
+                </tr>
+                <tr>
+                    <td>Network Received:</td>
+                    <td>{{ system.network_total_received() }}</td>
+                </tr>
+                <tr>
+                    <td>Hostname:</td>
+                    <td>{{ system.node() }}</td>
+                </tr>
+                <tr>
+                    <td>Local IPv4 Address:</td>
+                    <td>{{ system.local_ipv4_address() }}</td>
+                </tr>
+                <tr>
+                    <td>Uptime:</td>
+                    <td><abbr title="{{ system.uptime() }}">{{ system.human_uptime() }}</abbr></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-4 col-md-3 col-sm-1"></div>
+    </div>
 {% endblock %}
