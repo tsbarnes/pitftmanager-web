@@ -12,17 +12,24 @@ from any computer on the same network as your Raspberry Pi.
 *Note: you'll need pitftmanager installed first, see
 [the pitftmanager README](https://github.com/tsbarnes/pitftmanager/blob/main/README.md)*
 
-* First, make sure you have `git` and `pip3` using this command:
+* First, make sure you have `git` and `pip3`
+  * On Raspberry Pi OS, use this command:
+
+    ```shell
+    sudo apt install git python3-pip
+    ```
+
+  * On Arch Linux ARM, use this command:
+
+    ```shell
+    sudo pacman -S git python-pip
+    ```
+
+  * Second, clone the repository and change directory into it:
 
 ```shell
-sudo apt install git python3-pip
-```
-
-* Second, clone the repository and change directory into it:
-
-```shell
-git clone https://github.com/tsbarnes/pitftmanager-web.git /home/pi/pitftmanager-web
-cd /home/pi/pitftmanager-web
+git clone https://github.com/tsbarnes/pitftmanager-web.git ~/pitftmanager-web
+cd ~/pitftmanager-web
 ```
 
 * Third, install the Python dependencies:
@@ -46,7 +53,7 @@ python -c 'import os; print(os.urandom(16))'
 * Last, copy the service file and start the server:
 
 ```shell
-sudo cp /home/pi/pitftmanager-web/pitftmanager-web.service /etc/systemd/system/
+sudo cp ~/pitftmanager-web/pitftmanager-web.service /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable pitftmanager-web
 sudo systemctl start pitftmanager-web
