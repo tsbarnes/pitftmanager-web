@@ -34,6 +34,27 @@ def previous_app():
     return redirect('/')
 
 
+@app.route('/reload')
+def reload():
+    mq.send("reload", timeout=10)
+    flash("Sent 'reload' message to pitftmanager")
+    return redirect('/')
+
+
+@app.route('/refresh_calendar')
+def refresh_calendar():
+    mq.send("refresh_calendar", timeout=10)
+    flash("Sent 'refresh_calendar' message to pitftmanager")
+    return redirect('/')
+
+
+@app.route('/refresh_weather')
+def refresh_weather():
+    mq.send("refresh_weather", timeout=10)
+    flash("Sent 'refresh_weather' message to pitftmanager")
+    return redirect('/')
+
+
 @app.route('/switch_app')
 def switch_app():
     app_name = request.args.get('app')
